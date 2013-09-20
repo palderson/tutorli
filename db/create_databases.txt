@@ -1,10 +1,10 @@
 
 
 From the command line:
-  createuser swarvy
+  createuser tutorli
 Shall the new role be a superuser? (y/n) y
 
 
-  createdb -Oswarvy -Eutf8 swarvy_dev
-  createdb -Oswarvy -Eutf8 swarvy_test
+  createdb -Otutorli -Eutf8 tutorli_dev
+  createdb -Otutorli -Eutf8 tutorli_test
 
