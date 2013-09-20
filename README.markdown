@@ -53,8 +53,8 @@ Tutorli provides functionality for the site admin to:
 What's Not Included
 ===========
 
-Course creator payouts
-Image bio cropping to size
+* Course creator payouts
+* Image bio cropping to size
 
 Tutorial
 ===========
