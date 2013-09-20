@@ -1,0 +1,31 @@
+%div{:class => 'row'}
+  %div{:class => 'span7'}
+    .tab-content
+      - @course.lessons.each_with_index do |lesson, index|
+        %div{:class => "tab-pane #{'active' if index == 0}", :id => "lesson_#{lesson.id}"}
+          .page-header
+            %h2{:class => 'inline'}
+              = raw lesson.lesson_name
+              %small
+                = edit_lesson_link(@course, lesson)
+
+          - if enrolled
+            %p= lesson.lesson_overview.gsub(/\n/, '<br/>').html_safe
+            %br
+          - else
+            %p= raw "#{lesson.lesson_overview[0..200]}..."
+            %br
+
+          = render partial: 'shared/panda_video', locals: {lesson: lesson}
+
+          = render partial: 'shared/pdf', locals: {lesson: lesson}
+
+          .page-header
+            %h2 Lesson exercises
+          - if enrolled
+            %p= raw lesson.lesson_practical.gsub(/\n/, '<br/>').html_safe
+          - else
+            %p= raw "#{lesson.lesson_practical[0..200]}..."
+
+  %div{:class => 'span2'}
+    = render :partial => 'lesson_tabs'

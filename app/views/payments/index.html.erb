@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="span9"> 
+    <div class="page-header">
+      <h2>My Course Purchase History</h2>
+    </div>  
+
+    <table class="table table-bordered">
+      <tr>
+        <th>Course</th>
+        <th>Purchased at</th>
+        <th>Price</th>
+      </tr>
+    
+    <% @payments.each do |payment| %>    
+      <tr>
+        <td><%= payment.enrolment.course.course_name %></td>
+        <td><%= short_date payment.purchased_at %></td>
+        <td><%= humanized_money_with_symbol payment.price %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>  
+  <div class='span3'>
+    <div class="page-header">
+      <h2>Find More Courses</h2>
+    </div>
+    <%= button_to('Show Me The Courses', courses_path, :class => 'btn btn-large btn-success span3') %>
+  </div>  
+    

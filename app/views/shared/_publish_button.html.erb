@@ -1,0 +1,3 @@
+<%- if current_user == course.publisher && !course.published  %>
+  &nbsp;<%= link_to 'Publish', publish_course_path(course), :class => 'btn btn-danger', :method => :put %>
+<% end %>

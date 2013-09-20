@@ -1,0 +1,40 @@
+<%= bootstrap_form_for @course, :html => {:class => 'form-horizontal', :multipart => true} do |f| %>
+  <fieldset>
+    <%= f.control_group :course_name do %>
+      <%= f.text_field :course_name, :class => 'span5' %>
+    <%- end %>
+
+    <%= f.control_group :category_id do %>
+      <%= f.select(:category_id, category_options) %>
+    <%- end %>     
+
+    <%= f.control_group :course_overview do %>
+      <%= f.text_area :course_overview, :class => 'span5' %>
+    <%- end %>  
+
+    <%= f.control_group :tutor_bio do %>
+      <%= f.text_area :tutor_bio, :class => 'span5' %>
+    <%- end %>      
+
+    <%= f.control_group :bio_image do %>
+      <%= f.file_field :image, :class => 'span5' %>
+    <%- end %>
+
+    <%= f.control_group :expected_results do %>
+      <%= f.text_area :expected_results, :class => 'span5' %>
+    <%- end %>        
+
+    <%= f.control_group :level_id do %>
+      <%= f.select(:level_id, level_options) %>
+    <%- end %>  
+
+    <%= f.control_group :price do %>
+      <%= f.number_field :price, :class => 'number_field' %>
+    <%- end %>
+
+    <div style="padding: 0px 178px">
+      <%= f.submit nil, :class => 'btn btn-success' %>
+      <%= link_to 'Cancel', courses_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

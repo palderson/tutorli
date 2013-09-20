@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="span9"> 
+    <div class="page-header">
+      <h2>
+        Choose a course because, etc...
+      </h2>
+    </div>
+    <ul class="thumbnails">
+      <%- @courses.each do |course| %>	
+        <%= render :partial => 'shared/course_thumbnail', :locals => {:course => course} %>
+      <%- end %> 	
+    </ul>
+	<center>
+		<%= paginate @courses %>
+	</center>	
+  </div>   
+
+  <%= render :partial => 'shared/sidebar' %>   

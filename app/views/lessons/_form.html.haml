@@ -1,0 +1,41 @@
+= bootstrap_form_for [@course, @lesson], :html => {:class => 'form-horizontal', :multipart => true} do |f|
+  %fieldset
+    = f.control_group :lesson_name do
+      = f.text_field :lesson_name, :class => 'span5'
+
+    %p{:style => "padding-left: 178px"}
+      Choose one video or audio file per lesson.
+    %br
+
+    = f.control_group :panda_video_id, :label => "Media" do
+      =f.hidden_field :panda_video_id, id: "returned_video_id"
+      #upload_progress.panda_upload_progress
+
+    %p{:style => "padding-left: 178px"}
+      You can also upload PDF files.
+    %br
+
+    %div{style: "padding: 0px 178px"}
+      = f.filepicker_field :file_url, dragdrop: true
+    %br
+
+    = f.control_group :lesson_overview do
+      = f.text_area :lesson_overview, :class => 'span5'
+
+    .page-header
+      %h2
+        Lesson Exercises
+        %small Practical exercises reinforce the lesson
+
+    = f.control_group :lesson_practical do
+      = f.text_area :lesson_practical, :class => 'span5'
+
+
+    %div{style: "padding: 0px 178px"}
+      = f.submit nil, :class => 'btn btn-success'
+      = link_to 'Cancel', courses_path, :class => 'btn'
+
+%script{src: "//d21qbsp9m249bi.cloudfront.net/u/1.4/jquery.panda-uploader.min.js", type: "text/javascript"}
+
+:javascript
+  jQuery("#returned_video_id").pandaUploader(#{raw Panda.signed_params('post', "/videos.json").to_json}, {upload_progress_id: 'upload_progress', allowed_extensions: ['mp4', 'm4v', 'mov', 'wmv', 'mkv', 'mp3', 'aac', 'wav'], upload_strategy: new PandaUploader.UploadOnSubmit({disable_submit_button: false})});

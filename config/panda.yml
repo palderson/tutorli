@@ -1,0 +1,4 @@
+development:
+  access_key: enter_access_key
+  secret_key: enter_secret_key
+  cloud_id: api.pandastream.com

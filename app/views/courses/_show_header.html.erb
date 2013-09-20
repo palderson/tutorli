@@ -1,0 +1,44 @@
+<br />
+<br />
+<div class='row'>
+  <div class='span2'>  
+    <% if @course.image? %>
+      <%= image_tag @course.image.url(:thumb), :alt => "coach_image", :title => "Coach bio image" %>
+    <% else %>
+      <%= image_tag 'http://placehold.it/100x100' %>
+    <% end %>  
+  </div>
+  <div class='span7'>  
+    <h2><%= @course.course_name %></h2><br />
+    <h2 class='inline'><%= @course.category.name %> | Level <%= @course.level_id %> | <%= render :partial => "shared/horizontal_share" %></h2>
+  </div>  
+  <div class='span3'>
+    <div class='well'>
+      <br />
+      <div class='btn-group' align='center'>  
+        <%= link_to new_enrolment_path(:course_id => @course.id), :class => 'btn btn-large btn-success span2', :method => "get" do %>
+          ENROLL FOR <%= humanized_money_with_symbol @course.price %>
+    	  <% end %>      
+      </div>
+      <br />
+    </div>
+  </div>    
+</div>  
+
+<div class='row'>
+  <div class='span9'>
+    <br />
+    <ul class='nav nav-tabs' id='myTabs'>
+      <li><a href="#a1" data-toggle="tab">Overview</a></li>
+      <li><a href="#a2" data-toggle="tab">Expected Results</a></li>
+      <li><a href="#a3" data-toggle="tab">Tutor Bio</a></li>
+      <li><a href="#a4" data-toggle="tab">Lessons</a></li>
+    </ul> 
+  </div>  
+</div>
+
+
+
+
+
+   

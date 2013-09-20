@@ -1,0 +1,8 @@
+<% if user_signed_in? %>
+  <li>
+    <%= link_to current_user.email, edit_user_registration_path %>
+  </li>
+<% else %>
+    <div><%= link_to 'Create an account', new_user_registration_path, :class => 'btn btn-success'  %></div>
+  </li>
+<% end %>

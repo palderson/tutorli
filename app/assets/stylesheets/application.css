@@ -1,0 +1,38 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require publisher_payments
+ *= require bootstrap_and_overrides.css.less
+ *= require_self
+*/
+
+.textarea {
+  padding: 4px;
+  margin-left: 0;
+  height: 5em;
+  background-color: white;
+  border-bottom-color: rgba(82, 168, 236, 0.796875);
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-collapse: separate;
+  border-left-color: rgba(82, 168, 236, 0.796875);
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-right-color: rgba(82, 168, 236, 0.796875);
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-top-color: rgba(82, 168, 236, 0.796875);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-top-style: solid;
+  border-top-width: 1px;
+}

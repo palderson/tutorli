@@ -1,0 +1,72 @@
+<div class="row">
+  <div class="span9"> 
+    <div class="page-header">
+      <h2>Payments to me from Site Name</h2>
+    </div>  
+    
+    <table class="table table-bordered">
+        <tr>
+          <th>My payment</th>
+          <th>Date</th>
+          <th>Paid?</th>
+        </tr>
+      
+      <% @publisher_payments.each do |payment| %>
+        <tr>
+          <td><%= humanized_money_with_symbol payment.price %></td>
+          <td><%= short_date payment.paid_at %></td>
+          <td><%= paid? payment.paid %></td>
+        </tr>
+      <% end %>
+    </table>
+    
+    <div class="page-header">
+      <h2>Payments for my courses</h2>
+    </div>  
+    
+    <table class="table table-bordered">
+        <tr>
+          <th>Course</th>
+          <th>Purchased at</th>
+          <th>Course price</th>
+          <th>My payment</th>
+          <th>Paid?</th>
+        </tr>
+    
+      <% @payments.each do |payment| %>
+        <tr>
+          <td><%= payment.enrolment.course.course_name %></td>
+          <td><%= short_date payment.purchased_at %></td>
+          <td><%= humanized_money_with_symbol payment.price %></td>
+          <td><%= humanized_money_with_symbol payment.publisher_price %></td>
+          <td><%= paid? payment.publisher_payment %></td>
+        </tr>
+      <% end %>
+    </table> 
+    </div>
+  
+  <div class='span3'>
+    <div class="page-header">
+      <h2>Key Info</h2>
+    </div>
+    <div class='well'>
+      <p>NEXT PAYMENT DATE</p>
+      <h2><%= next_payment_date %></h2>
+      <br />
+      <p>NEXT PAYMENT TOTAL</p>
+      <h2><%= next_payment_total %></h2>
+      <br />
+      <p>OUTSTANDING PAYMENTS</p>
+      <h2><%= outstanding_payments %></h2>
+      <br />
+      <p>LIFETIME EARNINGS</p>
+      <h2><%= lifetime_earnings %></h2>
+      <br />
+    </div>
+    <p>All course earnings are paid through PayPal. Add or edit your PayPal account details by clicking below.</p>
+    <br />
+    <%= button_to 'Manage Paypal Account', account_index_path, :method => :get, :class => 'btn btn-large btn-info span3' %>
+    <br />
+  </div>  
+    
+  

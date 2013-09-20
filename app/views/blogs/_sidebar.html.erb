@@ -1,0 +1,12 @@
+<div class='page-header'>
+  <h2>The official Site Name Blog</h2>
+</div>  
+<h2>Recent blog posts</h2><br />
+<% @blogs.each do |blog| %>
+	<h3><%= link_to blog.title, blog %></h3>
+	<p><%= time_ago_in_words blog.created_at %> ago</p><br />
+<% end %>	
+<br />
+<%= render :partial => 'shared/twitter' %>
+<br />
+<div class="fb-like" style="padding-top:10px" data-send="false" data-width="450" data-show-faces="true" data-action="like" data-font="arial"></div>

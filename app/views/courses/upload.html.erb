@@ -1,0 +1,11 @@
+<%= bootstrap_form_for @course, :html => {:class => 'form-horizontal', :multipart => true } do |f| %>
+
+<fieldset>
+		
+	<%= f.control_group :video do %>
+  		<%= f.file_field :video, :class => 'image' %>
+	<%- end %>
+	
+</fieldset>	
+
+<%- end %>

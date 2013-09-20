@@ -1,0 +1,12 @@
+.row
+  .span8
+    .page-header
+      %h2 Edit your Account details
+    = form_for @user, :as => :user, :url => account_path(@user), :method => :put, :html => {:class => 'form-horizontal'} do |f|
+      = f.label :paypal
+      = f.text_field :paypal
+      
+      .form-actions
+        = f.submit "Update", :class => 'btn btn-primary'
+        = link_to 'Cancel', exercises_path, :class => 'btn'
+    

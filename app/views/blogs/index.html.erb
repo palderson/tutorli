@@ -1,0 +1,25 @@
+<div class="row">
+	  <div class="span7">
+        <% @blogs.each do |blog| %>	
+        	<div class='page-header'>  
+        	  <div class='inline'>  
+        	    <h2><%= link_to blog.title, blog %><small class='pull-right'><%= time_ago_in_words blog.created_at %> ago</small></h2>
+        	  </div> 
+        	</div>  
+        	<br /> 
+        	<p>
+        	  <%= truncate blog.text.gsub(/\n/, '<br/>').html_safe %>
+        	</p>
+        	<br />
+        <% end %>	  
+        
+  			<%- if current_user && current_user.admin %>
+          <p>
+            <%= link_to 'New blog', new_blog_path %>
+          </p>
+        <% end %>  
+        
+    </div>
+    <div class="span5">   
+      <%= render :partial => 'blogs/sidebar' %>
+    </div>    

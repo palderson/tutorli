@@ -1,0 +1,38 @@
+<%= form_for @exercise, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Exercise</legend>
+
+    <div class="control-group">
+      <%= f.label :lesson_id, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :lesson_id, :class => 'number_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :multiple_choice_question, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :multiple_choice_question, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :written_question, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :written_question, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :practical_exercise, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :practical_exercise, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', exercises_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

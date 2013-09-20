@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="span9">
+    <div class="page-header">
+      <h2>Welcome <%= current_user.email %><div class='pull-right'><%= link_to 'View Course Earnings', publisher_payments_payments_path, :class => 'btn btn-info' %> <%= link_to 'View Purchase History', payments_path, :class => 'btn btn-info' %></div></h2>
+    </div>  
+
+        <br />
+        <ul class='nav nav-tabs' id='myTabs'>
+          <li><a href="#a1" data-toggle="tab">What I'm Learning</a></li>
+          <li><a href="#a2" data-toggle="tab">What I'm Teaching</a></li>
+        </ul> 
+
+    <div class="tab-content">
+       <div class="tab-pane" id="a1">
+         <h2>Courses I'm enrolled in</h2></br>    
+         <% if current_user.courses.length > 0 %>
+            <ul class="thumbnails">
+              <%- @enrolments.each do |enrolment| %>	
+              <%= render :partial => 'shared/course_thumbnail', :locals => {:course => enrolment.course} %>
+              <%- end %>
+            </ul>
+         <% else %>
+           <div class="well">
+             <h4>You haven't enrolled in any courses yet!</h4>
+             <div  class='pull-right' style='margin-top: -8px;'>
+               <%= link_to('Check Out The Courses', courses_path, :class => 'btn btn-large btn-success') %>
+             </div>
+             <br />
+             <p>There are courses on Site Name designed to suit anyone and everyone!</p>
+           </div>
+         <% end %>
+       </div> 
+  
+       <div class="tab-pane" id="a2">      
+         <h2>Courses that I'm teaching</h2></br>
+         <%- if @published_courses.length > 0 %>
+           <ul class="thumbnails">
+             <%- @published_courses.each do |course| %>
+               <%= render :partial => 'shared/course_thumbnail', :locals => {:course => course} %>
+             <%- end %>
+           </ul>
+         <% else %>
+           <div class="well">
+             <h4>You haven't published any courses yet!</h4>
+             <div  class='pull-right' style='margin-top: -8px;'>
+               <%= link_to('Begin Creating Your Course', teach_pages_path, :class => 'btn btn-large btn-success') %>
+             </div>
+             <br />
+             <p>Courses are completely customizable and free to create!</p>
+           </div>
+         <% end %>  
+       </div>    
+       
+    </div> 
+  </div>  
+  <%= render :partial => 'shared/sidebar' %> 

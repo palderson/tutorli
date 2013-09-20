@@ -1,0 +1,9 @@
+- if lesson && lesson.panda_video
+  - if lesson.panda_video.status == "success"
+    - original_video = lesson.panda_video
+    - h264_encoding = original_video.encodings["h264"]
+    %video#movie{width: h264_encoding.width, height: h264_encoding.height, preload: "none", poster: h264_encoding.screenshots.first, controls: true}
+      %source{src: h264_encoding.url, type: "video/mp4"}
+  - else
+    %br
+    %p You video is being encoded and will be posted here shortly.

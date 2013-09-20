@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="span12">
+       <%= render :partial => 'enrolled_header' %>
+    </div>
+    <div class='span9'>   
+       
+       <div class='tab-content'>
+         <div class="tab-pane" id="a1">    
+             <h2>Course description</h2><br /> 
+             <p><%= h(@course.course_overview).gsub(/\n/, '<br/>').html_safe %></p>           
+         </div>  
+
+         <div class="tab-pane" id="a2">    
+             <h2>What you can expect from the course</h2><br />  
+             <p><%= h(@course.expected_results).gsub(/\n/, '<br/>').html_safe %></p>            
+         </div>
+
+         <div class="tab-pane" id="a3">    
+              <h2>Course tutor profile</h2><br /> 
+              <p><%= h(@course.tutor_bio).gsub(/\n/, '<br/>').html_safe %></p>              
+          </div>
+          
+         <div class="tab-pane" id="a4">    
+             <%= render :partial => 'new_lesson_content', :locals => {:enrolled => true} %>  
+         </div>
+       
+       </div>  
+    </div>
+<script>
+  window.course_id = <%= @course.id if @course %>;
+</script>

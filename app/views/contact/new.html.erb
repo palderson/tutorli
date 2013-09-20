@@ -1,0 +1,40 @@
+<div class="row">
+	<div class="span8">
+	  <div class='page-header'>
+		  <h2>We love to chat. What's on your mind?</h2>  
+    </div>  
+
+    <%= form_for @message, :url => contact_path do |form| %>
+      <fieldset class="fields">
+        <div class="field">
+          <%= form.label :name %>
+          <%= form.text_field :name, :class => 'span4' %>
+        </div>
+        
+        <div class="field">
+          <%= form.label :email %>
+          <%= form.text_field :email, :class => 'span4' %>
+        </div>
+        <div class="field">
+          <%= form.label :subject %>
+          <%= form.text_field :subject, :class => 'span4' %>
+        </div>
+        
+        <div class="field">
+          <%= form.label :body %>
+          <%= form.text_area :body, :class => 'span4' %>
+        </div>
+      </fieldset>
+      
+      <fieldset class="actions">
+        <%= form.submit "Send", :class => 'btn btn-success span2' %>
+      </fieldset>
+    <% end %>
+    
+  </div>  
+  <div class="span4">
+	  <div class='page-header'>
+		  <h2>Something a little more intimate?</h2>  
+    </div>
+    <%= render :partial => 'contact/map' %>
+  </div>  

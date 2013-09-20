@@ -1,0 +1,9 @@
+atom_feed do |feed|
+  feed.title 'Site Name Blog'
+  @blogs.each do |blog|
+    feed.entry(blog) do |entry|
+      entry.title blog.title
+      entry.content blog.text
+    end
+  end
+end

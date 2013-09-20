@@ -1,0 +1,6 @@
+en:
+  short: "%B %d"
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%B %d"

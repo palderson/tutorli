@@ -1,0 +1,30 @@
+<fieldset>
+  <div class="page-header">
+    <h2>Course Lesson <small> Describe what will be covered in the lesson</small></h2>
+  </div>
+ 
+  <%= f.control_group :lesson_name do %>
+    <%= div_tag :id => 'lesson_name', :class => 'span5'do %>
+      <%= f.lesson_name %>
+    <%= end %>
+  <% end %>
+
+  <%= f.control_group :video do %>
+    <%= f.file_field 'video' %>
+  <% end %>   
+
+  <%= f.control_group :lesson_overview do %>
+    <%= f.text_area :lesson_overview, :id => 'lesson_overview', :class => 'span5' %>
+  <% end %>
+    
+  <div class="page-header">
+    <h2>Lesson Exercises <small>Practical exercises reinforce the lesson</small></h2>
+  </div> 
+
+  <%= f.control_group :lesson_practical do %>
+    <%= f.text_area :lesson_practical, :class => 'span5' %>
+  <% end %>
+  
+  <%= link_to "remove lesson", '#', class: "btn btn-mini btn-danger remove_fields pull-right" %>
+
+</fieldset>

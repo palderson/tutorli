@@ -1,0 +1,32 @@
+<% if course %>
+    <li class="span3">
+      <%= link_to(course_path(course)) do %>
+        <div class="thumbnail"> 
+          <% if course.image? %>
+            <%= image_tag course.image.url(:bio), :alt => "coach_image", :title => "Coach bio image" if course.image %>
+          <% else %> 
+            <%= image_tag 'http://placehold.it/260x170' %>
+          <% end %>   
+            <div class="caption">
+    	        <p><%= link_to course.course_name, course_path(course) %></p>
+              <p><%= truncate(course.course_overview, :ommision => "...", :length => 170) %></p>
+            <div>
+            
+            <%- if current_user && current_user.courses.all.include?(course) %>
+              <p>Already Enrolled.</p>
+            <% end %>
+            <div id="inner-div" style="width:235px">  
+              <hr>
+              
+              <%= link_to 'View Course', course_path(course), :class => 'btn btn-success' %>
+              
+              <%= div_for(course, :class => "publish pull-right") do %>
+                <%= render :partial => 'shared/publish_button', :locals => {:course => course} %>
+              <% end %>
+              
+              <p style="float: right; margin-top:8px">Price: <%= humanized_money_with_symbol course.price %></p>
+            </div>  
+        </div>
+      <% end %>
+    </li>
+<% end %>

@@ -1,0 +1,16 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: tutorli_development
+  pool: 5
+  timeout: 5000
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: tutorli_test
+  pool: 5
+  timeout: 5000
+
+production:
+  uri: <%= ENV['DATABASE_URL'] %>

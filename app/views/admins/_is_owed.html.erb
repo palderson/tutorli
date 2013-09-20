@@ -1,0 +1,20 @@
+<table class="table table-striped" id="is_owed">
+  <thead>
+    <tr>
+      <th>Publisher</th>
+      <th>Amount owed</th>
+      <th>Paypal account</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @is_owed.each do |publisher| %>
+      <tr>
+        <td><%= publisher.email %></td>
+        <td><%= humanized_money_with_symbol Money.new(publisher.amount_owed) %></td>
+        <td><%= publisher.paypal %></td>
+        <td><%= pay_button publisher %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

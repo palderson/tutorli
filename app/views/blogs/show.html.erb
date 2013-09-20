@@ -1,0 +1,26 @@
+<div class="row">
+	  <div class="span7">
+	  	  <div class="page-header">
+	  		  <h2><%= @blog.title %></h2>
+	  		</div>  
+        
+        <p>
+          <%= simple_format @blog.text.gsub(/\n/, '<br/>').html_safe %>
+        </p>
+        <br />
+        <div>
+          <%= link_to 'Back to all posts', blogs_path %><br />
+          <br />  
+          <%= render :partial => "shared/twitter_share" %>
+        </div>
+        <br />
+        <p>
+          <%- if current_user && current_user.admin %>
+            <%= link_to 'Edit', edit_blog_path(@blog) %>
+            <%= link_to 'Delete', @blog, :method => :delete, :confirm => 'Are you sure' %>
+          <% end %>  
+        </p >
+    </div>
+    <div class="span5">   
+      <%= render :partial => 'blogs/sidebar' %>
+    </div>  

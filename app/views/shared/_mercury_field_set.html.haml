@@ -1,0 +1,5 @@
+%fieldset.control-group
+  = label_tag field_name, t(field_name), :class => 'control-label'
+  .controls
+    .span5.textarea{:id => field_name, :contenteditable => "true", "data-mercury" => "full", :style => "overflow-x: auto; overflow-y: auto; "}
+      = raw field_content

@@ -1,0 +1,26 @@
+<h1>Exercises</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Lesson</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @exercises.each do |exercise| %>
+      <tr>
+        <td><%= exercise.id %></td>
+        <td><%= link_to exercise.lesson_id, exercise_path(exercise) %></td>
+        <td><%= exercise.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_exercise_path(exercise), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', exercise_path(exercise), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_exercise_path, :class => 'btn btn-primary' %>

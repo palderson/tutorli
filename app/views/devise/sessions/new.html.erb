@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="span12"> 
+    <div class="page-header">
+      <h2>Sign in</h2>
+    </div> 
+    <div class='row'>
+      <div class='span4'>
+        <p>&nbsp;</p>
+      </div>
+      <div class='span4'>   
+        <div class='well'>
+          <div style='padding-left:30px'>
+            
+            <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+              <%= f.label :email %>
+              <%= f.email_field :email, :class => 'inner span3' %>    
+            
+              <%= f.label :password %>
+              <%= f.password_field :password, :class => 'span3' %><br />
+            
+              <% if devise_mapping.rememberable? -%>
+                <label class="checkbox inline">
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me %><br />    
+                </label>  
+              <% end -%>    
+              <br />
+                <%= f.submit "Sign In", :class => 'btn btn-large btn-success' %>&nbsp; Or &nbsp;
+                <%= link_to "Sign Up. It's FREE", new_registration_path(resource_name), :class => 'btn btn-large btn-info' %>
+            <% end %>
+                    
+            <%= render :partial => "devise/shared/links" %>
+          </div>  
+        </div>    
+      </div>
+    </div>   
+  </div>  

@@ -1,0 +1,11 @@
+<div class="span3">    
+    <div class='page-header'> 
+      <h2>Tutor bio</h2>
+    </div>
+    <div class="thumbnail">  
+      <%= image_tag @course.image.url %>
+    </div>
+    <br />
+    <p><%= @course.tutor_bio.gsub(/\n/, '<br/>').html_safe %></p>
+    
+</div>  

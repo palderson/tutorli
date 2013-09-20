@@ -1,0 +1,27 @@
+<h1>Exercise</h1>
+
+<p>
+  <b>Lesson</b><br>
+  <%= @exercise.lesson_id %>
+</p>
+
+<p>
+  <b>Multiple choice question</b><br>
+  <%= @exercise.multiple_choice_question %>
+</p>
+
+<p>
+  <b>Written question</b><br>
+  <%= @exercise.written_question %>
+</p>
+
+<p>
+  <b>Practical exercise</b><br>
+  <%= @exercise.practical_exercise %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', exercises_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_exercise_path(@exercise), :class => 'btn' %>
+  <%= link_to 'Delete', exercise_path(@exercise), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

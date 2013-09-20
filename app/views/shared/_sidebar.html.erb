@@ -1,0 +1,39 @@
+<div class="span3">
+  <div class="page-header">
+    <h2>
+		  <i class="icon-tags" style="margin-top:5px"></i> Browse by category
+	  </h2>
+  </div>	
+    <ul class="nav nav-list">
+      <li><a href="/courses">All Categories</a></li>
+		<%- @categories.each do |category| %>
+      		<li class="<%= current_cat?(category) %>">
+				<%= link_to category.name, courses_path(:params => {:category_id => category.id}) %>
+			</li>	
+		<%- end %>
+	  </li>	
+    </ul>
+  <div class="page-header">
+	<h2>
+		<i class="icon-signal" style="margin-top:5px"></i> Browse by level
+	</h2>
+  </div>
+    <ul class="nav nav-list">
+      	<%- @levels.each do |level| %>
+      		<li class="<%= current_lev?(level) %>">
+				<%= link_to level.number, courses_path(:params => {:level_id => level.id}) %></li>
+      	<%- end %>
+    </ul>
+  <div class="page-header">
+    <h2>
+  	  <i class="icon-shopping-cart" style="margin-top:5px"></i> Browse by price
+    </h2>
+  </div>
+	<ul class="nav nav-list">
+      	<%- @prices.each do |price| %>
+      		<li class="<%= current_pric?(price) %>">
+				<%= link_to price[:label], courses_path(:params => {:min => price[:min], :max => price[:max]}) %>
+			</li>
+      	<%- end %>
+    </ul>
+</div>   

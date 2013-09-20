@@ -1,0 +1,10 @@
+<ul class="nav nav-tabs nav-stacked" id="lesson_tabs">
+  <% @course.lessons.each_with_index do |lesson, index| %>
+    <li class="<%= 'active' if index == 0 %>">
+      <a href="#lesson_<%= lesson.id %>" data-toggle="tab">Lesson: <%= raw lesson.position %></a>
+    </li>
+  <% end %>
+</ul>
+<%= new_lesson_link @course %>
+
+

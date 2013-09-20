@@ -1,0 +1,32 @@
+<ul class="thumbnails">
+  <%- @courses.last(4).each do |course| %>
+	  <%= render :partial => 'shared/course_thumbnail', :locals => {:course => course} %>
+	<%- end %>
+</ul>
+
+<div class='row'>
+  <div class="span12">
+		<h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis mi ipsum.
+		  <small>
+        <%= link_to(courses_path, :class => 'btn btn-large btn-info', :style => 'float:right') do %>
+          VIEW ALL COURSES <i class="icon-chevron-right icon-white"></i>
+        <% end %>
+      </small>
+    </h2>
+	</div>
+</div>
+
+<div class="row">
+  <br />
+  <br />
+  <div class="span6">
+  	<blockquote>
+  		<p>An awesome quote from a client that loves your courses!</p><small>Client</small>
+  	</blockquote>
+  </div>
+
+  <div class="span6">
+  	<blockquote class="pull-right">
+  		<p>An even more amazing quote from a loving client!</p><small>Client</small>
+  	</blockquote>
+  </div>

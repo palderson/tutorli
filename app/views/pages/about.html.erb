@@ -1,0 +1,30 @@
+<div class='row'>
+	<div class='span8'>
+	  <div class='page-header'>
+		  <h2>The Site Name Story</h2>
+	  </div>
+	  <h3>This site was built by <a href='http://linkedin.com/in/peteralderson/'>Peter Alderson</a> and began life as Upperlane; a platform for people to create and sell online courses.<br><br>
+	    I've since moved on from Upperlane but wanted to make the code available for anyone else to build a top of.<br><a href='http://twitter.com/peteralderson'>Follow my on Twitter</a> if you like what you see!
+	    </h3>
+	    <br />
+	    <inline>
+	      <%= link_to courses_path, :class => 'btn btn-large btn-info', :method => :get do %>&nbsp;
+  		    <i class="icon-list icon-white"></i> Find a course for you
+		    <% end %>
+	      <%= link_to teach_pages_path, :class => 'btn btn-large btn-success', :method => :get do %>&nbsp;
+  		    <i class="icon-edit icon-white"></i> Begin Creating a Course
+  		  <% end %>  		  
+     </inline>
+  </div>      
+
+	<div class='span4'>
+	  <div class='page-header'>
+	    <h2>Facts</h2>
+	  </div>
+	  <h3>Site Name is based in City and founded by You!.</h3>
+	  <br />
+	  <h3>Connect with us today</h3>
+	  <br />
+	  <%= render :partial => 'shared/twitter' %>
+    <br />
+	</div>    

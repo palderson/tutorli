@@ -1,0 +1,24 @@
+<body class="container">
+  <div class="row">
+    <div class="span8"> 
+    <div class="page-header">
+        <h2><%= @lesson.lesson_name %></h2></div>
+
+		<p>
+		  <b>Lesson overview</b><br>
+		  <%= @lesson.lesson_overview %>
+		</p>
+
+		<p>
+		  <b>Lesson exercise</b><br>
+		  <%= @lesson.lesson_practical %>
+		</p>
+
+		<div class="form-actions">
+		  <%= link_to 'Back', course_lessons_path(@course), :class => 'btn'  %>
+		  <%= link_to 'Edit', edit_lesson_path(@lesson), :class => 'btn' %>
+		  <%= link_to 'Delete', lesson_path(@lesson), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+		</div>
+	</div>	
+  </div>
+</bod  

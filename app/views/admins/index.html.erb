@@ -1,0 +1,64 @@
+<div class'row'>
+  <div class'span12'>
+    <div class='page-header'>    
+      <h2>Admin Dash</h2>
+    </div>  
+
+    <div class='span5' style='padding-left:50px'>
+      <div class='well'>
+        <center>
+          <p>TOTAL USERS</p>
+          <h2><%= User.count %></h2> 
+        </center>  
+        <br/>
+      </div>
+    </div> 
+
+    <div class='span5'>
+      <div class='well'>
+        <center>
+          <p>TOTAL COURSES</p>
+          <h2><%= Course.count %></h2> 
+        </center>  
+        <br/>
+      </div>
+    </div> 
+    
+    <div class='span5' style='padding-left:50px'>
+      <div class='well'>
+        <center>
+          <p>TOTAL COURSE SALES</p>
+          <h2><%=  %></h2> 
+        </center>  
+        <br/>
+      </div>
+    </div> 
+
+    <div class='span5'>
+      <div class='well'>
+        <center>
+          <p>TOTAL EARNINGS</p>
+          <h2><%=  %></h2> 
+        </center>  
+        <br/>
+      </div>
+    </div>
+    
+  <br/>
+  
+  <%= render :partial => 'is_owed' %>
+
+  <br />
+  
+  <table class="table table-striped">
+    <%- @courses.each do |course| %>	
+      <tr>
+        <td><%= course.course_name %></td>
+        <td><%= course.publisher.email %></td>
+        <td><%= course.updated_at %></td>
+        <td><%= link_to 'Show', course %></td>
+        <td><%= link_to 'Edit', edit_course_path(course) %></td>
+        <td><%= link_to 'Destroy', course, confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <%- end %>
+  </table>
