@@ -126,7 +126,8 @@ production:
   secret_access_key: PRODUCTION_KEY
 ```
 Pandastream:
-The application was previously hosted on Heroku, which employs 2 second timeouts. This caused a lot of issues when uploading video. The eventual solution was to use the Pandastream Heroku app. To set this up, you'll need to add the app to your application on Heroku with the following command:
+The application was previously hosted on Heroku, which employs 2 second timeouts. This caused a lot of issues when uploading video. The eventual solution was to use the Pandastream Heroku app. 
+There is also a file panda.yml file containing the API key that will need to be updated. Note, this will cause a number of failures on Heroku unless you add Production credentials to the file. To set this up, you'll need to add the app to your application on Heroku with the following command:
 ```
 $ heroku addons:add pandastream 
 ```
