@@ -34,6 +34,9 @@ gem 'resque'
 gem 'panda'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem "filepicker-rails", :git => "git://github.com/maxtilford/filepicker-rails.git"
+gem 'rails_log_stdout', github: 'heroku/rails_log_stdout'
+gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
+gem 'rails_12factor'
 
 group :development, :test do
 	gem 'sqlite3'
