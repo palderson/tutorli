@@ -2,6 +2,7 @@ Tutorli
 ======
 
 A platform for users to create and sell online courses.
+View the demo at http://tutorli.com
 
 Tutorli is made using:
 
