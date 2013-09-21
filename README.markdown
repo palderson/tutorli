@@ -49,7 +49,13 @@ Tutorli provides functionality for the site admin to:
 * View each registered user of the site
 * View a complete list of course sales for the month
 * View how much each course creator is owed at the end of the month
-* Mark the payment is paid for each creator payment issued
+* Mark the payment is paid for each creator payment issued 
+
+There's also a complete blogging engine built in to Tutorli that supports
+
+* Dated blog posts
+* A list of recent posts
+* User comments
 
 What's Not Included
 ===========
